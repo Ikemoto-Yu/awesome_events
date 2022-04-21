@@ -29,10 +29,9 @@
       = link_to "イベントを削除する", event_path(@event), class: "btn btn-danger btn-lg btn-block", method: :delete, date: { confirm: "本当に削除しますか？" }
     - if @ticket
       = link_to "参加をキャンセルする", event_ticket_path(@event, @ticket), method: :delete,class: "btn btn-warning btn-lg btn-block"
-        - elsif logged_in?
-          %button.btn.btn-primary.btn-lg.btn-block{ "data-toggle": "modal", "data-target":
-          "#createTicket" }
-            参加する
+    - elsif logged_in?
+      %button.btn.btn-primary.btn-lg.btn-block{ "data-toggle": "modal", "data-target": "#createTicket" }
+        参加する
     - if logged_in?
       %button.btn.btn-primary.btn-lg.btn-block{ "date-toggle" => "model", "data-target" => "#createTicket" }
         参加する
@@ -51,7 +50,7 @@
                   キャンセル
                 = f.button "送信", class: "btn btn-primary"
     - else
-      = link_to "参加する", new_event_tickets_path(@event), class: "btn btn-primary btn-lg btn-block"
+      = link_to "参加する", new_event_ticket_path(@event), class: "btn btn-primary btn-lg btn-block"
     %hr
     .card.mb-2
       %h5.card-header 参加者
