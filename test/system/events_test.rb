@@ -6,4 +6,10 @@ class EventsTest < ApplicationSystemTestCase
     visit event_url(event)
     assert_selector "h1", text: event.name
   end
+
+  test "/event/new ページを表示" do
+    sign_in_as(FactoryBot.create(:user))
+    visit new_event_url
+    assert_selector "h1", text: "イベント作成"
+  end
 end
